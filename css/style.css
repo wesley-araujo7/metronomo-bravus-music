@@ -1,0 +1,300 @@
+@font-face {
+  font-family: "Raleway-Regular.ttf", "Raleway";
+  src: url('fonts/Raleway-Regular.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #1d1d1d;
+  color: white;
+  font-family: "Raleway-Regular.ttf", "Raleway";
+}
+
+#logo {
+  width: 200px;
+  padding: 20px;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+}
+
+h2 {
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  margin: auto;
+  font-size: 20px;
+}
+
+#iconMetronome {
+  fill: white;
+  width: 120px;
+  display: block;
+  margin: auto;
+}
+
+#bpm-container {
+  display: inline-flex;
+  width: 240px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 140px auto;
+}
+
+#menos,
+#mais,
+#menosCinco,
+#maisCinco {
+  color: white;
+  background-image: linear-gradient(45deg, #f5317f, #ff7132), url(../imgs/wallpaper1.jpg);
+  font-weight: bold;
+  overflow: hidden;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  margin: auto 5px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+#menos:hover,
+#mais:hover,
+#menosCinco:hover,
+#maisCinco:hover {
+  background-image: linear-gradient(45deg, #f5317fb4, #ff6f32b4), url(../imgs/wallpaper1.jpg);
+  color: black;
+}
+
+#menos:active,
+#mais:active,
+#menosCinco:active,
+#maisCinco:active {
+  transform: scale(0.97);
+}
+
+#menos:disabled,
+#mais:disabled,
+#menosCinco:disabled,
+#maisCinco:disabled {
+  pointer-events: none;
+  background: lightgray;
+  color: rgb(131, 131, 131);
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  /* remove estilo padrão do browser */
+  outline: none;
+  cursor: pointer;
+  background: none;
+  width: 240px;
+  margin: 70px auto;
+}
+
+/* estiliza o marcador móvel */
+
+/* Chrome/Safari/Opera */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* remove estilo padrão do browser */
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background-color: black;
+}
+
+/* Firefox */
+input[type=range]::-moz-range-thumb {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+input[type=range]::-moz-range-thumb:hover {
+  background-color: black;
+}
+
+/* IE */
+input[type=range]::-ms-thumb {
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+input[type=range]::-ms-thumb:hover {
+  background-color: black;
+}
+
+/* estiliza a a barra do slider */
+
+/* Chrome/Safari/Opera */
+input[type=range]::-webkit-slider-runnable-track {
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #f5317f, #ff7132), url(../imgs/wallpaper1.jpg);
+}
+
+/* Firefox */
+input[type=range]::-moz-range-track {
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #f5317f, #ff7132), url(../imgs/wallpaper1.jpg);
+}
+
+/* IE */
+input[type=range]::-ms-track {
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: linear-gradient(45deg, #f5317f, #ff7132), url(../imgs/wallpaper1.jpg);
+}
+
+#play {
+  background-image: linear-gradient(45deg, #f5317f, #ff7132), url(../imgs/wallpaper1.jpg);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+#play:hover {
+  background-image: linear-gradient(45deg, #f5317fb4, #ff6f32b4), url(../imgs/wallpaper1.jpg);
+  color: black;
+}
+
+#play:active {
+  transform: scale(0.97);
+}
+
+#container {
+  margin: 50px 20px;
+  position: relative;
+}
+
+@media screen and (min-width: 55em) {
+  h1 {
+    font-weight: bold;
+    text-align: right;
+    padding: 0 20px;
+    overflow: hidden;
+    margin-top: -70px;
+  }
+
+  h2 {
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+    font-size: 30px;
+  }
+
+  #menos,
+  #mais,
+  #menosCinco,
+  #maisCinco {
+    color: white;
+    background-image: linear-gradient(45deg, #f5317f, #ff7132), url(../imgs/wallpaper1.jpg);
+    font-weight: bold;
+    overflow: hidden;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    margin: auto 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+
+  #bpm-container {
+    display: inline-flex;
+    width: 350px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 240px auto;
+  }
+
+  #iconMetronome {
+    fill: white;
+    width: 200px;
+    display: block;
+    margin: auto;
+  }
+
+  #menos,
+  #mais,
+  #menosCinco,
+  #maisCinco {
+    color: white;
+    background-image: linear-gradient(45deg, #f5317f, #ff7132), url(../imgs/wallpaper1.jpg);
+    font-weight: bold;
+    overflow: hidden;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    margin: auto 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    /* remove estilo padrão do browser */
+    outline: none;
+    cursor: pointer;
+    background: none;
+    width: 350px;
+    margin: 70px auto;
+  }
+
+  #container {
+    margin: 120px 20px;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 70em) {
+  h1 {
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+    margin-top: -70px;
+  }
+
+  #container {
+    margin: 200px 20px;
+    position: relative;
+  }
+}

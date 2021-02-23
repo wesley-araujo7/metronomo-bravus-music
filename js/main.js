@@ -23,6 +23,7 @@ bpm.addEventListener('change', function () {
     if (isPlaying) {
         clearInterval(timer)
         timer = setInterval(tick, roundedBpm);
+        // timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
 })
 
@@ -35,6 +36,7 @@ play.addEventListener('click', function () {
         play.innerHTML = 'Stop';
         tick();
         timer = setInterval(tick, roundedBpm);
+        // timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
     isPlaying = !isPlaying;
 })
@@ -50,6 +52,7 @@ menosUm.addEventListener('click', function () {
     if (isPlaying) {
         clearInterval(timer)
         timer = setInterval(tick, roundedBpm);
+        // timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
 
     if (diminuiUm <= 30) {
@@ -78,6 +81,7 @@ maisUm.addEventListener('click', function () {
     if (isPlaying) {
         clearInterval(timer)
         timer = setInterval(tick, roundedBpm);
+        // timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
 
     if (aumentaUm >= 300) {
@@ -106,6 +110,7 @@ menosCinco.addEventListener('click', function () {
     if (isPlaying) {
         clearInterval(timer)
         timer = setInterval(tick, roundedBpm);
+        // timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
 
     if (diminuiCinco <= 30) {
@@ -135,6 +140,7 @@ maisCinco.addEventListener('click', function () {
     if (isPlaying) {
         clearInterval(timer)
         timer = setInterval(tick, roundedBpm);
+        // timer = setInterval(tick, (60 * 1000) / currentBpm);
     }
 
     if (aumentaCinco >= 300) {

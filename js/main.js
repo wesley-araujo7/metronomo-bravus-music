@@ -1,3 +1,4 @@
+$(document).ready(function() {
 const bpm = document.getElementById('bpm');
 const h2 = document.querySelector('h2');
 const play = document.getElementById('play');
@@ -194,16 +195,23 @@ var myListener = function (myEvt) {
 
 onRangeChange(bpm, myListener);
 
-$(bpm, menosUm, menosCinco, maisUm, maisCinco).click(function() {
-    if (bpm.value > 30 && bpm.value < 300) {
+$(bpm).change(function() {
+    let value = $(this).val();
+    if (value <= 30) {
+        menosUm.disabled = true;
+        menosCinco.disabled = true;
+        maisUm.disabled = false;
+        maisCinco.disabled = false;
+    } else if (value >= 300) {
+        menosUm.disabled = false;
+        menosCinco.disabled = false;
+        maisUm.disabled = true;
+        maisCinco.disabled = true;
+    } else {
         menosUm.disabled = false;
         menosCinco.disabled = false;
         maisUm.disabled = false;
         maisCinco.disabled = false;
-    } else {
-        menosUm.disabled = true;
-        menosCinco.disabled = true;
-        maisUm.disabled = true;
-        maisCinco.disabled = true;
     }
+})
 })

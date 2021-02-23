@@ -19,20 +19,22 @@ function tick() {
 bpm.addEventListener('change', function () {
     h2.innerHTML = this.value + ' bpm';
     currentBpm = parseInt(this.value);
+    let roundedBpm = Math.round((60 * 1000) / currentBpm);
     if (isPlaying) {
         clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm);
+        timer = setInterval(tick, roundedBpm);
     }
 })
 
 play.addEventListener('click', function () {
+    let roundedBpm = Math.round((60 * 1000) / currentBpm);
     if (isPlaying) {
         play.innerHTML = 'Play';
         clearInterval(timer);
     } else {
         play.innerHTML = 'Stop';
         tick();
-        timer = setInterval(tick, (60 * 1000) / currentBpm);
+        timer = setInterval(tick, roundedBpm);
     }
     isPlaying = !isPlaying;
 })
@@ -42,11 +44,12 @@ play.addEventListener('click', function () {
 menosUm.addEventListener('click', function () {
     let diminuiUm = bpm.value -= 1;
     h2.innerHTML = diminuiUm + ' bpm';
-
+    
     currentBpm = parseInt(diminuiUm);
+    let roundedBpm = Math.round((60 * 1000) / currentBpm);
     if (isPlaying) {
         clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm);
+        timer = setInterval(tick, roundedBpm);
     }
 
     if (diminuiUm <= 30) {
@@ -54,11 +57,13 @@ menosUm.addEventListener('click', function () {
         menosCinco.disabled = true;
         maisUm.disabled = false;
         maisCinco.disabled = false;
+        h2.innerHTML = '30 bpm';
     } else {
         menosUm.disabled = false;
         menosCinco.disabled = false;
         maisUm.disabled = false;
         maisCinco.disabled = false;
+        h2.innerHTML = diminuiUm + ' bpm';
     }
 })
 
@@ -69,9 +74,10 @@ maisUm.addEventListener('click', function () {
     h2.innerHTML = aumentaUm + ' bpm';
 
     currentBpm = parseInt(aumentaUm);
+    let roundedBpm = Math.round((60 * 1000) / currentBpm);
     if (isPlaying) {
         clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm);
+        timer = setInterval(tick, roundedBpm);
     }
 
     if (aumentaUm >= 300) {
@@ -79,11 +85,13 @@ maisUm.addEventListener('click', function () {
         menosCinco.disabled = false;
         maisUm.disabled = true;
         maisCinco.disabled = true;
+        h2.innerHTML = '300 bpm';
     } else {
         menosUm.disabled = false;
         menosCinco.disabled = false;
         maisUm.disabled = false;
         maisCinco.disabled = false;
+        h2.innerHTML = aumentaUm + ' bpm';
     }
 })
 
@@ -94,9 +102,10 @@ menosCinco.addEventListener('click', function () {
     h2.innerHTML = diminuiCinco + ' bpm';
 
     currentBpm = parseInt(diminuiCinco);
+    let roundedBpm = Math.round((60 * 1000) / currentBpm);
     if (isPlaying) {
         clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm);
+        timer = setInterval(tick, roundedBpm);
     }
 
     if (diminuiCinco <= 30) {
@@ -104,11 +113,13 @@ menosCinco.addEventListener('click', function () {
         menosCinco.disabled = true;
         maisUm.disabled = false;
         maisCinco.disabled = false;
+        h2.innerHTML = '30 bpm';
     } else {
         menosUm.disabled = false;
         menosCinco.disabled = false;
         maisUm.disabled = false;
         maisCinco.disabled = false;
+        h2.innerHTML = diminuiCinco + ' bpm';
     }
 })
 
@@ -120,9 +131,10 @@ maisCinco.addEventListener('click', function () {
     h2.innerHTML = aumentaCinco + ' bpm';
 
     currentBpm = parseInt(aumentaCinco);
+    let roundedBpm = Math.round((60 * 1000) / currentBpm);
     if (isPlaying) {
         clearInterval(timer)
-        timer = setInterval(tick, (60 * 1000) / currentBpm);
+        timer = setInterval(tick, roundedBpm);
     }
 
     if (aumentaCinco >= 300) {
@@ -130,11 +142,13 @@ maisCinco.addEventListener('click', function () {
         menosCinco.disabled = false;
         maisUm.disabled = true;
         maisCinco.disabled = true;
+        h2.innerHTML = '300 bpm';
     } else {
         menosUm.disabled = false;
         menosCinco.disabled = false;
         maisUm.disabled = false;
         maisCinco.disabled = false;
+        h2.innerHTML = aumentaCinco + ' bpm';
     }
 })
 
@@ -175,7 +189,7 @@ var myListener = function (myEvt) {
 onRangeChange(bpm, myListener);
 
 $(bpm, menosUm, menosCinco, maisUm, maisCinco).click(function() {
-    if (bpm.value >=30 <=300) {
+    if (bpm.value > 30 && bpm.value < 300) {
         menosUm.disabled = false;
         menosCinco.disabled = false;
         maisUm.disabled = false;

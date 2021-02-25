@@ -190,7 +190,6 @@ function onRangeChange(rangeInputElmt, listener) {
 var myListener = function (myEvt) {
     myNumEvts["custom"] += 1;
     h2.innerHTML = myEvt.target.value + ' bpm';
-    myUpdate();
 };
 
 onRangeChange(bpm, myListener);

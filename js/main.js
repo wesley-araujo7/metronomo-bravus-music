@@ -5,8 +5,8 @@ const play = document.getElementById('play');
 const audio = document.querySelector('audio');
 const menosUm = document.getElementById('menos');
 const maisUm = document.getElementById('mais');
-const menosCinco = document.getElementById('menosCinco')
-const maisCinco = document.getElementById('maisCinco')
+const menosCinco = document.getElementById('menosCinco');
+const maisCinco = document.getElementById('maisCinco');
 
 let currentBpm = 60;
 let isPlaying = false;
